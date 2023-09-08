@@ -15,4 +15,9 @@ ICountdownTimer countdownTimer = new CountdownTimer
 
 countdownTimer.StartOrRestart(TimeSpan.FromSeconds(10));
 
+Console.WriteLine("Press any key to stop the countdown timer...");
+Console.ReadKey();
+countdownTimer.Stop();
+Console.WriteLine("Countdown timer stopped");
+
 Console.ReadKey();

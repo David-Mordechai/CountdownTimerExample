@@ -31,4 +31,10 @@ public class CountdownTimer : ICountdownTimer
             _timer?.Dispose();
         }, state: null, dueTime: 0, period: 1000);
     }
+
+    public void Stop()
+    {
+        _timer?.Dispose();
+        _timer = null;
+    }
 }
