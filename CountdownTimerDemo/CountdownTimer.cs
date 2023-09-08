@@ -8,9 +8,9 @@ public class CountdownTimer : ICountdownTimer
     private double _secondsRemaining;
     private Timer? _timer;
 
-    public void StartOrRestart(TimeSpan period)
+    public void StartOrRestart(TimeSpan time)
     {
-        _secondsRemaining = period.TotalSeconds;
+        _secondsRemaining = time.TotalSeconds;
         if (_secondsRemaining <= 0)
         {
             throw new ArgumentException("Minutes must be greater than 0.");
