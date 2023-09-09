@@ -4,6 +4,7 @@ public interface ICountdownTimer
 {
     Action? OnCountdownFinished { get; set; }
     Action<TimeSpan>? OnTick { get; set; }
-    void StartOrRestart(TimeSpan time);
+    Action? OnStop { get; set; }
+    void Start(TimeSpan time);
     void Stop();
 }

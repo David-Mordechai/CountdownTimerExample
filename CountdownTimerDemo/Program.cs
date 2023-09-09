@@ -2,10 +2,8 @@
 
 ICountdownTimer countdownTimer = new CountdownTimer
 {
-    OnCountdownFinished = () =>
-    {
-        Console.WriteLine("Countdown finished...");
-    }
+    OnCountdownFinished = () => { Console.WriteLine("Countdown finished..."); },
+    OnStop = () => { Console.WriteLine("Countdown timer stopped");}
 };
 
 var restarted = false;
@@ -16,16 +14,13 @@ countdownTimer.OnTick = secondsRemaining =>
     if (restarted) return;
     
     Console.WriteLine("Restarting the countdown timer to 5 seconds");
-    countdownTimer.StartOrRestart(TimeSpan.FromSeconds(5));
+    countdownTimer.Start(TimeSpan.FromSeconds(5));
     restarted = true;
 };
 
-countdownTimer.StartOrRestart(TimeSpan.FromSeconds(10));
+countdownTimer.Start(TimeSpan.FromSeconds(10));
 
-Console.WriteLine("Press any key to stop the countdown timer...");
 Console.ReadKey();
-
 countdownTimer.Stop();
-Console.WriteLine("Countdown timer stopped");
 
 Console.ReadKey();
